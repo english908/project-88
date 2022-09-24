@@ -12,7 +12,7 @@ block_image_height = 5;
 
 function load_img(){
 	// write code to Upload golf image on the canvas
-	fabric.Image.fromUrl("golf-h1.png", function(Img){
+	fabric.Image.fromURL("golf-h.png", function(Img){
 		hole_obj = Img;
 		hole_obj.scaleToWidth(50); 
 		hole_obj.scaleToHeight(50); 
@@ -28,7 +28,7 @@ function load_img(){
 function new_image()
 {
 	// write code to Upload ball image on canvas
-	fabric.Image.fromUrl("ball.png", function(Img){
+	fabric.Image.fromURL("ball.png", function(Img){
 		ball_obj = Img;
 		ball_obj.scaleToWidth(50); 
 		ball_obj.scaleToHeight(50); 
@@ -78,28 +78,29 @@ function my_keydown(e)
 		}
 	}
 	
-	function up() {
-	if(ball_y >=450)
+	function up()
+	{
+	if (ball_y >=5)
 	{
 		// Write a code to move ball upward.
 		ball_y = ball_y - block_image_height;
 		console.log ("block image height = " + block_image_height);
 		console.log("When Up arrow is pressed , X = " + ball_x + ", Y = " + ball_y);
 		canvas.remove(ball_obj);
-		new_update(); 
+		new_image(); 
 	}
 }
 
 	function down()
 	{
-		if (ball_y <= 450)
+		if (ball_y <=450)
 	{
 		 // Write a code to move ball downward.
 		 ball_y = ball_y + block_image_height;
 		 console.log ("block image height = " + block_image_height);
 		 console.log("When Down arrow is pressed , X = " + ball_x + ", Y = " + ball_y);
 		 canvas.remove(ball_obj);
-		 new_update(); 
+		 new_image(); 
 	}
 }
 
@@ -112,7 +113,7 @@ function my_keydown(e)
 			console.log ("block image width = " + block_image_width);
 			console.log("When Left arrow is pressed , X = " + ball_x + ", Y = " + ball_y);
 			canvas.remove(ball_obj);
-			new_update();
+			new_image();
 		}
 	}
 
@@ -125,7 +126,7 @@ function my_keydown(e)
 			console.log ("block image width = " + block_image_width);
 			console.log("When Right arrow is pressed , X = " + ball_x + ", Y = " + ball_y);
 			canvas.remove(ball_obj);
-			new_update();
+			new_image();
 		}
 	}
 }
